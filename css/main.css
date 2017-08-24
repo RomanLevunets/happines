@@ -775,6 +775,9 @@
 
 .table-mask {
   position: absolute;
+  -webkit-transition: .3s linear;
+  -o-transition: .3s linear;
+  transition: .3s linear;
   z-index: 4;
   top: 0;
   bottom: 0;
