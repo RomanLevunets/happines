@@ -30,19 +30,8 @@ $(document).ready(function() {
         infiniteLoop: true,
         adaptiveHeight: true,
     });
-    // $('.kitchen-slider').bxSlider({
-    //     infiniteLoop: true,
-    //     maxSlides: 3,
-    //     adaptiveHeight: true,
-    //     minSlides: 3,
-    //             slideMargin: 0,
-    //             moveSlides: 1,
-    //             slideWidth: 630,
-    // });
 
-    $('.table-slider').bxSlider({
-        infiniteLoop: true,
-    });
+
 
     $('.phone').mask("+7(999) 999-99-99");
     $('.people').mask("-(999)-");
@@ -80,5 +69,25 @@ $(document).ready(function() {
         $(".kitchen-slider").on("click", ".nexted", function(event){
             slider.goToNextSlide();
         });
+
+    $('.table-slider').flickity({
+        // options
+        wrapAround: true,
+        cellAlign: 'center',
+        pageDots: false,
+        groupCells: 1,
+        imagesLoaded: true
+
+    });
+    var $carousel = $('.table-slider').flickity();
+
+    var $progressBar = $('.progress-bar');
+
+    $carousel.on( 'scroll.flickity', function( event, progress ) {
+        progress = Math.max( 0, Math.min( 1, progress ) );
+        $progressBar.width( progress * 100 + '%' );
+    });
+
+
 });
 
